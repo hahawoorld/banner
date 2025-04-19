@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta name="naver-site-verification" content="9e4bbb2a70fb4b29b3dfdf621177a8ee27a2f52a" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="현수막 시공 전문 기업 소개 사이트" />
@@ -135,19 +134,19 @@
     <section id="about" class="py-20 bg-white">
     <div class="max-w-5xl mx-auto px-4 text-center">
         <h2 class="text-3xl font-bold mb-6">회사 소개</h2>
-        <p class="text-gray-600 mb-4">2005년 설립 이래 수천 건의 시공 경험을 바탕으로, 최고의 품질과 서비스를 제공합니다.</p>
+        <p class="text-gray-600 mb-4">2001년 설립 이래 수만만 건의 시공 경험을 바탕으로, 최고의 품질과 서비스를 제공합니다.</p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
             <div class="shadow rounded-xl p-6 bg-gray-50">
                 <h3 class="text-xl font-semibold mb-2">설립연도</h3>
-                <p>2005년</p>
+                <p>2001년</p>
             </div>
             <div class="shadow rounded-xl p-6 bg-gray-50">
                 <h3 class="text-xl font-semibold mb-2">시공 건수</h3>
-                <p>5,000건 이상</p>
+                <p>10,000건 이상</p>
             </div>
             <div class="shadow rounded-xl p-6 bg-gray-50">
                 <h3 class="text-xl font-semibold mb-2">전문 인력</h3>
-                <p>15명</p>
+                <p>10명</p>
             </div>
         </div>
     </div>
@@ -158,17 +157,17 @@
         <h2 class="text-3xl font-bold text-center mb-12">서비스</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="bg-white p-6 rounded shadow text-center">
-                <img src="https://via.placeholder.com/100x100" alt="그림1" class="mx-auto mb-4" />
-                <h3 class="text-xl font-semibold mb-2">실외 현수막</h3>
+                <img src=pic/실외2.jpg alt="그림1" class="mx-auto mb-4" />
+                <h3 class="text-xl font-semibold mb-2">실외 시공</h3>
                 <p class="text-gray-500">옥외광고, 행사용 외부 시공</p>
             </div>
             <div class="bg-white p-6 rounded shadow text-center">
-                <img src="https://via.placeholder.com/100x100" alt="그림2" class="mx-auto mb-4" />
-                <h3 class="text-xl font-semibold mb-2">실내 행사</h3>
+                <img src=pic/실내.jpg alt="그림2" class="mx-auto mb-4" />
+                <h3 class="text-xl font-semibold mb-2">실내 시공</h3>
                 <p class="text-gray-500">세미나, 전시회, 기업 내부용</p>
             </div>
             <div class="bg-white p-6 rounded shadow text-center">
-                <img src="https://via.placeholder.com/100x100" alt="그림3" class="mx-auto mb-4" />
+                <img src=pic/스카이(2).jpg alt="그림3" class="mx-auto mb-4" />
                 <h3 class="text-xl font-semibold mb-2">현장 맞춤 시공</h3>
                 <p class="text-gray-500">공간과 목적에 따른 맞춤 제작</p>
             </div>
@@ -220,20 +219,74 @@
     </div>
 </section>
  
-<section id="portfolio" class="py-20 bg-gray-100">
+<<section id="portfolio" class="py-20 bg-gray-100">
     <div class="max-w-6xl mx-auto px-4">
         <h2 class="text-3xl font-bold text-center mb-12">시공 포트폴리오</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <template x-data="portfolio()">
-                <template x-for="i in 6" :key="i">
+            <template x-data="{
+                images: [
+              './pic/1.jpg',
+              './pic2.jpg',
+              './pic3.jpg',
+              './pic4.jpg',
+              './pic5.jpg',
+              './pic6.jpg',
+              './pic7.jpg',
+              './pic8.jpg',
+              './pic9.jpg',
+              './pic10.jpg',
+              './pic11.jpg',
+              './pic12.jpg',
+              './pic13.jpg',
+              './pic14.jpg',
+              './pic15.jpg',
+              './pic16.jpg',
+              './pic스카이(2).jpg',
+              './pic스카이.jpg',
+              './pic실내.jpg',
+              './pic실외 (2).jpg',
+              './pic실외 (3).jpg',
+              './pic실외 (4).jpg',
+              './pic실외 (5).jpg',
+              './pic실외 (6).jpg',
+              './pic실외 (7).jpg',
+              './pic실외 (8).jpg',
+              './pic실외 (9).jpg',
+              './pic실외 스카이 (2).jpg',
+              './pic실외 스카이 (3).jpg',
+              './pic실외 스카이 (4).jpg',
+              './pic실외 스카이 (5).jpg',
+              './pic실외 스카이.jpg',
+              './pic실외.jpg',
+              './pic실외1.jpg',
+              './pic실외2.jpg',
+              './pic야간 실외 (2).jpg',
+              './pic야간 실외 스카이.jpg',
+              './pic야간 실외.jpg',
+                ],
+                open: false,
+                currentIndex: null,
+                openModal(index) {
+                    this.currentIndex = index;
+                    this.open = true;
+                },
+                closeModal() {
+                    this.open = false;
+                    this.currentIndex = null;
+                },
+                get currentImage() {
+                    return this.currentIndex !== null ? this.images[this.currentIndex] : '';
+                }
+            }">
+                <template x-for="(image, index) in images" :key="index">
                     <div>
-                        <img :src="'https://via.placeholder.com/400x300?text=그림'+i" @click="openModal(i)" class="cursor-pointer rounded shadow" alt="포트폴리오 이미지" />
+                        <img :src="image" @click="openModal(index)" class="cursor-pointer rounded shadow" alt="포트폴리오 이미지" />
                     </div>
                 </template>
 
                 <div x-show="open" @click.away="closeModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50" x-cloak>
                     <div class="bg-white rounded shadow-lg p-4 max-w-3xl w-full">
-                        <img :src="image" alt="확대 이미지" class="w-full h-auto" />
+                        <img :src="currentImage" alt="확대 이미지" class="w-full h-auto" />
                         <button @click="closeModal" class="mt-4 bg-gray-800 text-white px-4 py-2 rounded">닫기</button>
                     </div>
                 </div>
@@ -241,6 +294,37 @@
         </div>
     </div>
 </section>
+
+<script>
+    function portfolio() {
+        return {
+            images: [
+                'https://via.placeholder.com/400x300?text=그림1',
+                'https://via.placeholder.com/400x300?text=그림2',
+                'https://via.placeholder.com/400x300?text=그림3',
+                'https://via.placeholder.com/400x300?text=그림4',
+                'https://via.placeholder.com/400x300?text=그림5',
+                'https://via.placeholder.com/400x300?text=그림6',
+                'https://via.placeholder.com/400x300?text=그림7',
+                'https://via.placeholder.com/400x300?text=그림8',
+                // 실제 이미지 URL로 변경해주세요.
+            ],
+            open: false,
+            currentIndex: null,
+            openModal(index) {
+                this.currentIndex = index;
+                this.open = true;
+            },
+            closeModal() {
+                this.open = false;
+                this.currentIndex = null;
+            },
+            get currentImage() {
+                return this.currentIndex !== null ? this.images[this.currentIndex] : '';
+            }
+        };
+    }
+</script>
  
 <section id="testimonials" class="py-20 bg-white">
     <div class="max-w-6xl mx-auto px-4 text-center">
