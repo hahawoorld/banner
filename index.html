@@ -18,31 +18,12 @@
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
     <script>
-        function portfolio() {
-            return {
-                open: false,
-                image: '',
-                openModal(i) {
-                    this.image = `https://via.placeholder.com/800x600?text=그림${i}`;
-                    this.open = true;
-                },
-                closeModal() {
-                    this.open = false;
-                }
-            };
-        }
-
+        AOS.init({
+            once: true,
+            duration: 800,
+            easing: 'ease-in-out'
+        });
     </script>
-
-<script>
-    AOS.init({
-        once: true,
-        duration: 800,
-        easing: 'ease-in-out'
-    });
-</script>
-
-    
 
     <style>
         html {
@@ -96,6 +77,24 @@
         nav a:hover::after {
             width: 100%;
         }
+
+        .rounded.shadow.overflow-hidden img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .portfolio-image-wrapper {
+            overflow: hidden; /* 확대될 때 이미지가 컨테이너 밖으로 넘치는 것을 방지 */
+        }
+
+        .portfolio-image {
+            transition: transform 0.3s ease-in-out; /* 확대/축소 애니메이션 속도 및 방식 설정 */
+        }
+
+        .portfolio-image-wrapper:hover .portfolio-image {
+            transform: scale(1.1); /* 마우스 호버 시 1.1배 확대 */
+        }
     </style>
 </head>
 
@@ -116,173 +115,170 @@
 
     <main class="pt-24">
 
-<section class="relative h-screen w-full overflow-hidden">
-    <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
-        <source src= "video.mp4" type="video/mp4" />
-        브라우저가 비디오 태그를 지원하지 않습니다.
-    </video>
-    
-    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-10">
-        <div class="text-center text-white px-4" data-aos="fade-in">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4">한맥기획</h1>
-            <p class="text-lg md:text-2xl">현수막 시공 전문업체</p>
-        </div>
-    </div>
-</section>
+        <section class="relative h-screen w-full overflow-hidden">
+            <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+                <source src= "video.mp4" type="video/mp4" />
+                브라우저가 비디오 태그를 지원하지 않습니다.
+            </video>
+
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-10">
+                <div class="text-center text-white px-4" data-aos="fade-in">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">한맥기획</h1>
+                    <p class="text-lg md:text-2xl">현수막 시공 전문업체</p>
+                </div>
+            </div>
+        </section>
 
 
-    <section id="about" class="py-20 bg-white">
-    <div class="max-w-5xl mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold mb-6">회사 소개</h2>
-        <p class="text-gray-600 mb-4">2001년 설립 이래 수만만 건의 시공 경험을 바탕으로, 최고의 품질과 서비스를 제공합니다.</p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-            <div class="shadow rounded-xl p-6 bg-gray-50">
-                <h3 class="text-xl font-semibold mb-2">설립연도</h3>
-                <p>2001년</p>
+        <section id="about" class="py-20 bg-white">
+            <div class="max-w-5xl mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold mb-6">회사 소개</h2>
+                <p class="text-gray-600 mb-4">2001년 설립 이래 수만만 건의 시공 경험을 바탕으로, 최고의 품질과 서비스를 제공합니다.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+                    <div class="shadow rounded-xl p-6 bg-gray-50">
+                        <h3 class="text-xl font-semibold mb-2">설립연도</h3>
+                        <p>2001년</p>
+                    </div>
+                    <div class="shadow rounded-xl p-6 bg-gray-50">
+                        <h3 class="text-xl font-semibold mb-2">시공 건수</h3>
+                        <p>10,000건 이상</p>
+                    </div>
+                    <div class="shadow rounded-xl p-6 bg-gray-50">
+                        <h3 class="text-xl font-semibold mb-2">전문 인력</h3>
+                        <p>10명</p>
+                    </div>
+                </div>
             </div>
-            <div class="shadow rounded-xl p-6 bg-gray-50">
-                <h3 class="text-xl font-semibold mb-2">시공 건수</h3>
-                <p>10,000건 이상</p>
+        </section>
+
+        <section id="services" class="py-20 bg-gray-100">
+            <div class="max-w-6xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12">서비스</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded shadow text-center">
+                        <img src="pic/1%20(37).jpg" alt="그림1" class="mx-auto mb-4" />
+                        <h3 class="text-xl font-semibold mb-2">실외 시공</h3>
+                        <p class="text-gray-500">옥외광고, 행사용 외부 시공</p>
+                    </div>
+                    <div class="bg-white p-6 rounded shadow text-center">
+                        <img src="pic/1%20(32).jpg" alt="그림2" class="mx-auto mb-4" />
+                        <h3 class="text-xl font-semibold mb-2">실내 시공</h3>
+                        <p class="text-gray-500">세미나, 전시회, 기업 내부용</p>
+                    </div>
+                    <div class="bg-white p-6 rounded shadow text-center">
+                        <img src="pic/1%20(14).jpg" alt="그림3" class="mx-auto mb-4" />
+                        <h3 class="text-xl font-semibold mb-2">현장 맞춤 시공</h3>
+                        <p class="text-gray-500">공간과 목적에 따른 맞춤 제작</p>
+                    </div>
+                </div>
             </div>
-            <div class="shadow rounded-xl p-6 bg-gray-50">
-                <h3 class="text-xl font-semibold mb-2">전문 인력</h3>
-                <p>10명</p>
+        </section>
+
+        <section class="py-20 bg-white text-center" data-aos="fade-up">
+            <div class="max-w-5xl mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-6">스카이차 보유로 더 다양한 작업 가능</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    한맥기획은 자체 스카이차 장비를 보유하고 있어 고소 작업이 필요한 다양한 현장에서 더욱 유연하고 안전하게 시공 작업을 수행할 수 있습니다.
+                    이는 외부 장비 대여에 따른 시간 지연과 비용을 줄여, 고객에게 더 합리적인 가격과 신속한 서비스를 제공합니다.
+                </p>
+                <img src="https://via.placeholder.com/800x400?text=스카이차+작업+사진" alt="스카이차 작업 사진" class="mx-auto rounded shadow" />
             </div>
-        </div>
-    </div>
-</section>
- 
-<section id="services" class="py-20 bg-gray-100">
-    <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12">서비스</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white p-6 rounded shadow text-center">
-                <img src=pic/실외2.jpg alt="그림1" class="mx-auto mb-4" />
-                <h3 class="text-xl font-semibold mb-2">실외 시공</h3>
-                <p class="text-gray-500">옥외광고, 행사용 외부 시공</p>
+        </section>
+
+        <section id="process" class="py-20 bg-white">
+            <div class="max-w-6xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12">시공 절차 안내</h2>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-6 text-center">
+                    <div class="bg-gray-100 p-6 rounded-lg shadow">
+                        <div class="text-4xl font-bold gold mb-2">01</div>
+                        <h3 class="text-lg font-semibold mb-2">상담 접수</h3>
+                        <p class="text-gray-600">전화 또는 온라인 문의</p>
+                    </div>
+                    <div class="bg-gray-100 p-6 rounded-lg shadow">
+                        <div class="text-4xl font-bold gold mb-2">02</div>
+                        <h3 class="text-lg font-semibold mb-2">현장 확인</h3>
+                        <p class="text-gray-600">담당자가 방문하여 측정</p>
+                    </div>
+                    <div class="bg-gray-100 p-6 rounded-lg shadow">
+                        <div class="text-4xl font-bold gold mb-2">03</div>
+                        <h3 class="text-lg font-semibold mb-2">디자인 제작</h3>
+                        <p class="text-gray-600">목적에 맞는 시안 제공</p>
+                    </div>
+                    <div class="bg-gray-100 p-6 rounded-lg shadow">
+                        <div class="text-4xl font-bold gold mb-2">04</div>
+                        <h3 class="text-lg font-semibold mb-2">제작 및 출력</h3>
+                        <p class="text-gray-600">고급 장비로 출력 진행</p>
+                    </div>
+                    <div class="bg-gray-100 p-6 rounded-lg shadow">
+                        <div class="text-4xl font-bold gold mb-2">05</div>
+                        <h3 class="text-lg font-semibold mb-2">시공 완료</h3>
+                        <p class="text-gray-600">현장에 맞춰 깔끔하게 시공</p>
+                    </div>
+                </div>
             </div>
-            <div class="bg-white p-6 rounded shadow text-center">
-                <img src=pic/실내.jpg alt="그림2" class="mx-auto mb-4" />
-                <h3 class="text-xl font-semibold mb-2">실내 시공</h3>
-                <p class="text-gray-500">세미나, 전시회, 기업 내부용</p>
-            </div>
-            <div class="bg-white p-6 rounded shadow text-center">
-                <img src=pic/스카이(2).jpg alt="그림3" class="mx-auto mb-4" />
-                <h3 class="text-xl font-semibold mb-2">현장 맞춤 시공</h3>
-                <p class="text-gray-500">공간과 목적에 따른 맞춤 제작</p>
-            </div>
-        </div>
-    </div>
-</section>
- 
-<section class="py-20 bg-white text-center" data-aos="fade-up">
-    <div class="max-w-5xl mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-6">스카이차 보유로 더 다양한 작업 가능</h2>
-        <p class="text-lg text-gray-700 mb-6">
-            한맥기획은 자체 스카이차 장비를 보유하고 있어 고소 작업이 필요한 다양한 현장에서 더욱 유연하고 안전하게 시공 작업을 수행할 수 있습니다.
-            이는 외부 장비 대여에 따른 시간 지연과 비용을 줄여, 고객에게 더 합리적인 가격과 신속한 서비스를 제공합니다.
-        </p>
-        <img src="https://via.placeholder.com/800x400?text=스카이차+작업+사진" alt="스카이차 작업 사진" class="mx-auto rounded shadow" />
-    </div>
-</section>
- 
-<section id="process" class="py-20 bg-white">
-    <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12">시공 절차 안내</h2>
-        <div class="grid grid-cols-1 md:grid-cols-5 gap-6 text-center">
-            <div class="bg-gray-100 p-6 rounded-lg shadow">
-                <div class="text-4xl font-bold gold mb-2">01</div>
-                <h3 class="text-lg font-semibold mb-2">상담 접수</h3>
-                <p class="text-gray-600">전화 또는 온라인 문의</p>
-            </div>
-            <div class="bg-gray-100 p-6 rounded-lg shadow">
-                <div class="text-4xl font-bold gold mb-2">02</div>
-                <h3 class="text-lg font-semibold mb-2">현장 확인</h3>
-                <p class="text-gray-600">담당자가 방문하여 측정</p>
-            </div>
-            <div class="bg-gray-100 p-6 rounded-lg shadow">
-                <div class="text-4xl font-bold gold mb-2">03</div>
-                <h3 class="text-lg font-semibold mb-2">디자인 제작</h3>
-                <p class="text-gray-600">목적에 맞는 시안 제공</p>
-            </div>
-            <div class="bg-gray-100 p-6 rounded-lg shadow">
-                <div class="text-4xl font-bold gold mb-2">04</div>
-                <h3 class="text-lg font-semibold mb-2">제작 및 출력</h3>
-                <p class="text-gray-600">고급 장비로 출력 진행</p>
-            </div>
-            <div class="bg-gray-100 p-6 rounded-lg shadow">
-                <div class="text-4xl font-bold gold mb-2">05</div>
-                <h3 class="text-lg font-semibold mb-2">시공 완료</h3>
-                <p class="text-gray-600">현장에 맞춰 깔끔하게 시공</p>
-            </div>
-        </div>
-    </div>
-</section>
- 
-<<section id="portfolio" class="py-20 bg-gray-100">
-    <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12">시공 포트폴리오</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <template x-data="{
+        </section>
+
+        <section id="portfolio" class="py-20 bg-gray-100">
+            <div class="max-w-6xl mx-auto px-4" x-data="{
                 images: [
-              './pic/1.jpg',
-              './pic2.jpg',
-              './pic3.jpg',
-              './pic4.jpg',
-              './pic5.jpg',
-              './pic6.jpg',
-              './pic7.jpg',
-              './pic8.jpg',
-              './pic9.jpg',
-              './pic10.jpg',
-              './pic11.jpg',
-              './pic12.jpg',
-              './pic13.jpg',
-              './pic14.jpg',
-              './pic15.jpg',
-              './pic16.jpg',
-              './pic스카이(2).jpg',
-              './pic스카이.jpg',
-              './pic실내.jpg',
-              './pic실외 (2).jpg',
-              './pic실외 (3).jpg',
-              './pic실외 (4).jpg',
-              './pic실외 (5).jpg',
-              './pic실외 (6).jpg',
-              './pic실외 (7).jpg',
-              './pic실외 (8).jpg',
-              './pic실외 (9).jpg',
-              './pic실외 스카이 (2).jpg',
-              './pic실외 스카이 (3).jpg',
-              './pic실외 스카이 (4).jpg',
-              './pic실외 스카이 (5).jpg',
-              './pic실외 스카이.jpg',
-              './pic실외.jpg',
-              './pic실외1.jpg',
-              './pic실외2.jpg',
-              './pic야간 실외 (2).jpg',
-              './pic야간 실외 스카이.jpg',
-              './pic야간 실외.jpg',
+                    '/pic/1 (1).jpg',
+                    '/pic/1 (2).jpg',
+                    '/pic/1 (3).jpg',
+                    '/pic/1 (4).jpg',
+                    '/pic/1 (5).jpg',
+                    '/pic/1 (6).jpg',
+                    '/pic/1 (7).jpg',
+                    '/pic/1 (8).jpg',
+                    '/pic/1 (9).jpg',
+                    '/pic/1 (10).jpg',
+                    '/pic/1 (11).jpg',
+                    '/pic/1 (12).jpg',
+                    '/pic/1 (13).jpg',
+                    '/pic/1 (14).jpg',
+                    '/pic/1 (15).jpg',
+                    '/pic/1 (16).jpg',
+                    '/pic/1 (17).jpg',
+                    '/pic/1 (18).jpg',
+                    '/pic/1 (19).jpg',
+                    '/pic/1 (20).jpg',
+                    '/pic/1 (21).jpg',
+                    '/pic/1 (22).jpg',
+                    '/pic/1 (23).jpg',
+                    '/pic/1 (24).jpg',
+                    '/pic/1 (25).jpg',
+                    '/pic/1 (26).jpg',
+                    '/pic/1 (27).jpg',
+                    '/pic/1 (28).jpg',
+                    '/pic/1 (29).jpg',
+                    '/pic/1 (30).jpg',
+                    '/pic/1 (31).jpg',
+                    '/pic/1 (32).jpg',
+                    '/pic/1 (33).jpg',
+                    '/pic/1 (34).jpg',
+                    '/pic/1 (35).jpg',
+                    '/pic/1 (36).jpg',
+                    '/pic/1 (37).jpg',
+                    '/pic/1 (38).jpg'
                 ],
                 open: false,
-                currentIndex: null,
-                openModal(index) {
-                    this.currentIndex = index;
+                currentImage: '',
+                openModal(imageSrc) {
+                    this.currentImage = imageSrc;
                     this.open = true;
                 },
                 closeModal() {
                     this.open = false;
-                    this.currentIndex = null;
-                },
-                get currentImage() {
-                    return this.currentIndex !== null ? this.images[this.currentIndex] : '';
+                    this.currentImage = '';
                 }
             }">
-                <template x-for="(image, index) in images" :key="index">
-                    <div>
-                        <img :src="image" @click="openModal(index)" class="cursor-pointer rounded shadow" alt="포트폴리오 이미지" />
-                    </div>
-                </template>
+                <h2 class="text-3xl font-bold text-center mb-12">시공 포트폴리오</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <template x-for="(image, index) in images" :key="index">
+                        <div class="rounded shadow overflow-hidden portfolio-image-wrapper">
+                            <img :src="image" @click="openModal(image)" class="w-full h-auto cursor-pointer object-cover aspect-square portfolio-image" alt="포트폴리오 이미지" />
+                        </div>
+                    </template>
+                </div>
 
                 <div x-show="open" @click.away="closeModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50" x-cloak>
                     <div class="bg-white rounded shadow-lg p-4 max-w-3xl w-full">
@@ -290,149 +286,104 @@
                         <button @click="closeModal" class="mt-4 bg-gray-800 text-white px-4 py-2 rounded">닫기</button>
                     </div>
                 </div>
-            </template>
+            </div>
+        </section>
+
+        <section id="testimonials" class="py-20 bg-white">
+            <div class="max-w-6xl mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold mb-12">고객 후기</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-gray-100 p-6 rounded shadow">
+                        <p class="text-gray-600 italic mb-4">“작업이 정말 깔끔했고, 현장에서도 친절하게 응대해주셔서 감사했습니다.”</p>
+                        <h4 class="font-semibold">김OO 고객</h4>
+                    </div>
+                    <div class="bg-gray-100 p-6 rounded shadow">
+                        <p class="text-gray-600 italic mb-4">“디자인부터 설치까지 전반적으로 만족도가 높았습니다. 재이용 의사 있습니다.”</p>
+                        <h4 class="font-semibold">이OO 고객</h4>
+                    </div>
+                    <div class="bg-gray-100 p-6 rounded shadow">
+                        <p class="text-gray-600 italic mb-4">“빠른 시공과 합리적인 가격, 추천드립니다!”</p>
+                        <h4 class="font-semibold">박OO 고객</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       <!-- <section id="contact" class="py-20 bg-gray-100" data-aos="fade-up">
+            <div class="max-w-3xl mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold mb-8">문의하기</h2>
+                <form class="space-y-6">
+                    <input type="text" placeholder="이름" class="w-full p-3 border border-gray-300 rounded" />
+                    <input type="email" placeholder="이메일" class="w-full p-3 border border-gray-300 rounded" />
+                    <textarea placeholder="문의 내용" rows="5" class="w-full p-3 border border-gray-300 rounded"></textarea>
+                    <button type="submit" class="bg-gray-800 text-white px-6 py-3 rounded hover:bg-gray-700">보내기</button>
+                </form>
+                <p class="text-sm text-gray-500 mt-6">전화: 02-123-4567 | 이메일: gkalscjf463@gmail.com</p>
+            </div>
+        </section> 
+        -->
+        
+    </main>
+
+    <footer class="bg-gray-900 text-white py-10 relative">
+        <div class="max-w-6xl mx-auto px-4 text-center space-y-4">
+            <p class="text-sm">&copy; 2025 한맥기획. 모든 권리 보유.</p>
+
+            <div class="text-sm text-gray-400 space-y-1">
+                <p>
+                    주소:
+                    <a href="https://map.naver.com/v5/search/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EA%B4%91%EC%A7%84%EA%B5%AC%20%EC%95%84%EC%B0%A8%EC%82%B0%EB%A1%9C40%EA%B8%B8%2067" target="_blank" class="hover:text-white underline">
+                        서울 광진구 아차산로40길 67 연진마을
+                    </a>
+                </p>
+                <p>사업자등록번호: 206-09-98992</p>
+                <p>대표: 하재원</p>
+                <p>전화: 02-457-8078 | 이메일: hanmak@naver.com</p>
+            </div>
+
+            <div class="flex justify-center space-x-6 pt-2">
+                <a href="#" class="text-gray-400 hover:text-white transition">Facebook</a>
+                <a href="https://www.instagram.com/hanmak_company/" class="text-gray-400 hover:text-white transition">Instagram</a>
+                <a href="#" class="text-gray-400 hover:text-white transition">YouTube</a>
+            </div>
         </div>
+
+    </footer>
+
+
+    <div class="floating-buttons">
+        <a href="tel:01053337368" class="floating-button">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15 .621 0 1.132-.488 1.172-1.109a.75.75 0 00-.495-.76l-3.014-1.128a.75.75 0 00-.822.174l-.888.888a12.057 12.057 0 01-5.303-5.303l.888-.888a.75.75 0 00.174-.822L5.869 4.323a.75.75 0 00-.76-.495c-.62.04-1.109.551-1.109 1.172z" />
+            </svg>
+        </a>
+
+        <a href="sms:01053337368" class="floating-button">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h5m-6 8h10a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+        </a>
+
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="floating-button">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+            </svg>
+        </button>
     </div>
-</section>
 
-<script>
-    function portfolio() {
-        return {
-            images: [
-                'https://via.placeholder.com/400x300?text=그림1',
-                'https://via.placeholder.com/400x300?text=그림2',
-                'https://via.placeholder.com/400x300?text=그림3',
-                'https://via.placeholder.com/400x300?text=그림4',
-                'https://via.placeholder.com/400x300?text=그림5',
-                'https://via.placeholder.com/400x300?text=그림6',
-                'https://via.placeholder.com/400x300?text=그림7',
-                'https://via.placeholder.com/400x300?text=그림8',
-                // 실제 이미지 URL로 변경해주세요.
-            ],
-            open: false,
-            currentIndex: null,
-            openModal(index) {
-                this.currentIndex = index;
-                this.open = true;
-            },
-            closeModal() {
-                this.open = false;
-                this.currentIndex = null;
-            },
-            get currentImage() {
-                return this.currentIndex !== null ? this.images[this.currentIndex] : '';
-            }
-        };
-    }
-</script>
- 
-<section id="testimonials" class="py-20 bg-white">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold mb-12">고객 후기</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-gray-100 p-6 rounded shadow">
-                <p class="text-gray-600 italic mb-4">“작업이 정말 깔끔했고, 현장에서도 친절하게 응대해주셔서 감사했습니다.”</p>
-                <h4 class="font-semibold">김OO 고객</h4>
-            </div>
-            <div class="bg-gray-100 p-6 rounded shadow">
-                <p class="text-gray-600 italic mb-4">“디자인부터 설치까지 전반적으로 만족도가 높았습니다. 재이용 의사 있습니다.”</p>
-                <h4 class="font-semibold">이OO 고객</h4>
-            </div>
-            <div class="bg-gray-100 p-6 rounded shadow">
-                <p class="text-gray-600 italic mb-4">“빠른 시공과 합리적인 가격, 추천드립니다!”</p>
-                <h4 class="font-semibold">박OO 고객</h4>
-            </div>
-        </div>
-    </div>
-</section>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
 
-<section id="contact" class="py-20 bg-gray-100" data-aos="fade-up">
-    <div class="max-w-3xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-8">문의하기</h2>
-      <form class="space-y-6">
-        <input type="text" placeholder="이름" class="w-full p-3 border border-gray-300 rounded" />
-        <input type="email" placeholder="이메일" class="w-full p-3 border border-gray-300 rounded" />
-        <textarea placeholder="문의 내용" rows="5" class="w-full p-3 border border-gray-300 rounded"></textarea>
-        <button type="submit" class="bg-gray-800 text-white px-6 py-3 rounded hover:bg-gray-700">보내기</button>
-      </form>
-      <p class="text-sm text-gray-500 mt-6">전화: 02-123-4567 | 이메일: gkalscjf463@gmail.com</p>
-    </div>
-  </section>
-
-<footer class="bg-gray-900 text-white py-10 relative">
-    <div class="max-w-6xl mx-auto px-4 text-center space-y-4">
-        <p class="text-sm">&copy; 2025 한맥기획. 모든 권리 보유.</p>
-
-        <div class="text-sm text-gray-400 space-y-1">
-            <p>
-              주소:
-              <a href="https://map.naver.com/v5/search/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EA%B4%91%EC%A7%84%EA%B5%AC%20%EC%95%84%EC%B0%A8%EC%82%B0%EB%A1%9C40%EA%B8%B8%2067" target="_blank" class="hover:text-white underline">
-                  서울 광진구 아차산로40길 67 연진마을
-              </a>
-          </p>
-          <p>사업자등록번호: 206-09-98992</p>
-          <p>대표: 하재원</p>
-          <p>전화: 02-457-8078 | 이메일: hanmak@naver.com</p>
-      </div>
-
-      <div class="flex justify-center space-x-6 pt-2">
-          <a href="#" class="text-gray-400 hover:text-white transition">Facebook</a>
-          <a href="https://www.instagram.com/hanmak_company/" class="text-gray-400 hover:text-white transition">Instagram</a>
-          <a href="#" class="text-gray-400 hover:text-white transition">YouTube</a>
-      </div>
-  </div>
-
-  </footer>
-
-
-<div class="floating-buttons">
-  <a href="tel:01053337368" class="floating-button">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15 .621 0 1.132-.488 1.172-1.109a.75.75 0 00-.495-.76l-3.014-1.128a.75.75 0 00-.822.174l-.888.888a12.057 12.057 0 01-5.303-5.303l.888-.888a.75.75 0 00.174-.822L5.869 4.323a.75.75 0 00-.76-.495c-.62.04-1.109.551-1.109 1.172z" />
-      </svg>
-  </a>
-
-  <a href="sms:01053337368" class="floating-button">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h5m-6 8h10a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-      </svg>
-  </a>
-
-  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="floating-button">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-      </svg>
-  </button>
-</div>
-
-<script>
-  AOS.init({
-      duration: 800,
-      once: true,
-  });
-
-  ScrollReveal().reveal('section', {
-      delay: 100,
-      duration: 1000,
-      distance: '50px',
-      origin: 'bottom',
-      easing: 'ease-out'
-  });
-
-  function portfolio() {
-      return {
-          open: false,
-          image: '',
-          openModal(i) {
-              this.image = `https://via.placeholder.com/800x600?text=그림${i}`;
-              this.open = true;
-          },
-          closeModal() {
-              this.open = false;
-              this.image = '';
-          }
-      }
-  }
-</script>
+        ScrollReveal().reveal('section', {
+            delay: 100,
+            duration: 1000,
+            distance: '50px',
+            origin: 'bottom',
+            easing: 'ease-out'
+        });
+    </script>
 </body>
 </html>
