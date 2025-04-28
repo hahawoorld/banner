@@ -170,17 +170,17 @@
                 <h2 class="text-3xl font-bold text-center mb-12">서비스</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="bg-white p-6 rounded shadow text-center">
-                        <img src="pic/1%20(37).jpg" alt="그림1" class="mx-auto mb-4" />
+                        <img src="pic/1%20(37).jpg" alt="한맥기획 실외 현수막 시공" class="mx-auto mb-4" />
                         <h3 class="text-xl font-semibold mb-2">실외 시공</h3>
                         <p class="text-gray-500">옥외광고, 행사용 외부 시공</p>
                     </div>
                     <div class="bg-white p-6 rounded shadow text-center">
-                        <img src="pic/1%20(32).jpg" alt="그림2" class="mx-auto mb-4" />
+                        <img src="pic/1%20(32).jpg" alt="한맥기획 실내 현수막 시공" class="mx-auto mb-4" />
                         <h3 class="text-xl font-semibold mb-2">실내 시공</h3>
                         <p class="text-gray-500">세미나, 전시회, 기업 내부용</p>
                     </div>
                     <div class="bg-white p-6 rounded shadow text-center">
-                        <img src="pic/1%20(14).jpg" alt="그림3" class="mx-auto mb-4" />
+                        <img src="pic/1%20(14).jpg" alt="한맥기획 현장 맞춤 현수막 시공" class="mx-auto mb-4" />
                         <h3 class="text-xl font-semibold mb-2">현장 맞춤 시공</h3>
                         <p class="text-gray-500">공간과 목적에 따른 맞춤 제작</p>
                     </div>
@@ -195,7 +195,7 @@
                     한맥기획은 자체 스카이차 장비를 보유하고 있어 고소 작업이 필요한 다양한 현장에서 더욱 유연하고 안전하게 시공 작업을 수행할 수 있습니다.
                     이는 외부 장비 대여에 따른 시간 지연과 비용을 줄여, 고객에게 더 합리적인 가격과 신속한 서비스를 제공합니다.
                 </p>
-                <img src="https://via.placeholder.com/800x400?text=스카이차+작업+사진" alt="스카이차 작업 사진" class="mx-auto rounded shadow" />
+                <img src="https://via.placeholder.com/800x400?text=스카이차+작업+사진" alt="한맥기획 스카이차 현수막 작업 사진" class="mx-auto rounded shadow" />
             </div>
         </section>
 
@@ -289,14 +289,14 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     <template x-for="(image, index) in images" :key="index">
                         <div class="rounded shadow overflow-hidden portfolio-image-wrapper">
-                            <img :src="image" @click="openModal(image)" class="w-full h-auto cursor-pointer object-cover aspect-square portfolio-image" alt="포트폴리오 이미지" />
+                            <img :src="image" @click="openModal(image)" class="w-full h-auto cursor-pointer object-cover aspect-square portfolio-image" alt="한맥기획 현수막 시공 포트폴리오 이미지" />
                         </div>
                     </template>
                 </div>
 
                 <div x-show="open" @click.away="closeModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50" x-cloak>
                     <div class="bg-white rounded shadow-lg p-4 max-w-3xl w-full">
-                        <img :src="currentImage" alt="확대 이미지" class="w-full h-auto" />
+                        <img :src="currentImage" alt="현수막 확대 이미지" class="w-full h-auto" />
                         <button @click="closeModal" class="mt-4 bg-gray-800 text-white px-4 py-2 rounded">닫기</button>
                     </div>
                 </div>
